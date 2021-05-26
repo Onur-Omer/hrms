@@ -1,6 +1,7 @@
 package javacamp.hrms.api.controllers;
 
 import javacamp.hrms.business.abstracts.PositionService;
+import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.entities.concretes.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class PositionsController {
 
 
     @GetMapping("/getall")
-    public List<Position> getAll(){
+    public DataResult<List<Position>> getAll(){
         return positionService.getall();
     }
 

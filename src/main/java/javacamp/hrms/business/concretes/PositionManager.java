@@ -1,6 +1,7 @@
 package javacamp.hrms.business.concretes;
 
 import javacamp.hrms.business.abstracts.PositionService;
+import javacamp.hrms.core.utilities.results.*;
 import javacamp.hrms.dataAccess.abstracts.PositionDao;
 import javacamp.hrms.entities.concretes.Position;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,17 @@ public class PositionManager implements PositionService {
     }
 
     @Override
-    public List<Position> getall() {
-        return positionDao.findAll();
+    public DataResult<List<Position>> getall() {
+        return new SuccessDataResult<List<Position>>(positionDao.findAll());
+    }
+
+    @Override
+    public Result add(Position position) {
+        if(positionDao.findByPositionName(position.getPositionName())){
+          return new ErrorResult("Var olan pozisyon");
+        }
+        positionDao.save(position);
+
+        return new SuccessResult();
     }
 }

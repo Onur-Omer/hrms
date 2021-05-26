@@ -25,7 +25,7 @@ public class Employee {
     private String identityNumber;
 
     @Column(name = "birthday")
-    private Date birthday;
+    private String birthday;
 
     @Column(name = "email")
     private String email;
