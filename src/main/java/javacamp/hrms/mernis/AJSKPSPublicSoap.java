@@ -208,11 +208,11 @@ public class AJSKPSPublicSoap
         finally {
             if (__httpTransport.debug) {
                 if (__httpTransport.requestDump != null) {
-                    android.util.Log.i("requestDump",__httpTransport.requestDump);
+                    System.out.println("requestDump: "+__httpTransport.requestDump);
 
                 }
                 if (__httpTransport.responseDump != null) {
-                    android.util.Log.i("responseDump",__httpTransport.responseDump);
+                    System.out.println("requestDump: "+__httpTransport.requestDump);
                 }
             }
         }
