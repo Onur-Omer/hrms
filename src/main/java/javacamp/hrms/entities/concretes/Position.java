@@ -3,6 +3,7 @@ package javacamp.hrms.entities.concretes;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,4 +16,7 @@ public class Position {
 
     @Column(name = "position_name")
     private String positionName;
+
+    @OneToMany(mappedBy = "position")
+    private List<JobAd> jobAds;
 }

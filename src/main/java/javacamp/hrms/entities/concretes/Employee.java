@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -32,5 +33,8 @@ public class Employee {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "employer")
+    private List<JobAd> jobAds;
 
 }
