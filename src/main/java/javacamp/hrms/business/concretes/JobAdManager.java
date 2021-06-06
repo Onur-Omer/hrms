@@ -31,7 +31,7 @@ public class JobAdManager implements JobAdService {
 
     @Override
     public Result updateActive(int jobAdId,boolean active) {
-        JobAd jobAd=this.jobAdDao.getByJob_ad_id(jobAdId);
+        JobAd jobAd=this.jobAdDao.getById(jobAdId);
         jobAd.setActive(active);
         this.jobAdDao.save(jobAd);
         return new SuccessResult();

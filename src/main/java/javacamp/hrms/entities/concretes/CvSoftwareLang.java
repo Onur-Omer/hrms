@@ -15,8 +15,8 @@ import javax.validation.constraints.NotBlank;
 public class CvSoftwareLang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cv_software_lang")
-    private int cv_software_lang;
+    @Column(name = "cv_software_lang_id")
+    private int cv_software_lang_id;
 
     @NotBlank
     @NotNull
