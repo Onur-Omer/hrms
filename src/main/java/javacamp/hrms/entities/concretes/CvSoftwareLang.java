@@ -1,4 +1,5 @@
 package javacamp.hrms.entities.concretes;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +15,15 @@ import javax.validation.constraints.NotBlank;
 public class CvSoftwareLang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "cv_software_lang")
+    private int cv_software_lang;
 
-
-    @ManyToOne()
-    @JoinColumn(name = "cv_id")
-    private EmployeeCv employeeCv;
-
-
+    @NotBlank
+    @NotNull
     @Column(name = "used_languages")
     private String usedLanguages;
+
+    @ManyToOne()
+    @JoinColumn(name = "employee_cv_id")
+    private EmployeeCv employeeCv;
 }

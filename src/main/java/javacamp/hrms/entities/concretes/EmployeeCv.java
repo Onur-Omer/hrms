@@ -15,12 +15,8 @@ import java.util.List;
 public class EmployeeCv {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private Employee employee;
+    @Column(name = "employee_cv_id")
+    private int employee_cv_id;
 
     @Column(name = "photo")
     private String photo;
@@ -31,8 +27,8 @@ public class EmployeeCv {
     @Column(name = "linkedln")
     private String linkedln;
 
-    @Column(name = "first_article")
-    private String firstArticle;
+    @Column(name = "article")
+    private String article;
 
     @Column(name = "active_status")
     private boolean activeStatus;
@@ -48,5 +44,10 @@ public class EmployeeCv {
 
     @OneToMany(mappedBy = "employeeCv")
     private List<CvForeignLanguage> foreignLanguages;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
 
 }

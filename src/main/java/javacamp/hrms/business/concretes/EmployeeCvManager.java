@@ -10,6 +10,8 @@ import javacamp.hrms.entities.concretes.EmployeeCv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeCvManager implements EmployeeCvService {
 
@@ -21,8 +23,8 @@ public class EmployeeCvManager implements EmployeeCvService {
     }
 
     @Override
-    public DataResult<EmployeeCv> getByEmployee_Id(int id) {
-        return new SuccessDataResult<EmployeeCv>(this.employeeCvDao.getByEmployee_Id(id));
+    public DataResult<List<EmployeeCv>> getAllByEmployee_Email(String email) {
+        return new SuccessDataResult<List<EmployeeCv>>(this.employeeCvDao.getAllByEmployee_Email(email));
     }
 
     @Override

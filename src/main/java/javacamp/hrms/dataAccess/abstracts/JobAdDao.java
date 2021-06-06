@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface JobAdDao extends JpaRepository<JobAd,Integer> {
 
-    List<JobAd> getAllByEmployerId(int employerId);
+    List<JobAd> getAllByEmployerEmail(String email);
     List<JobAd> getAllByCity(String city);
-    List<JobAd> getAllByPositionId(int positionId);
+    List<JobAd> getAllByPosition_PositionName(String positionName);
     List<JobAd> getAllByLastDate(Date date);
+    JobAd getByJob_ad_id(int id);
 }

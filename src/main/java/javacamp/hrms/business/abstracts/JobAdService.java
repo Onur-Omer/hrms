@@ -10,9 +10,10 @@ import java.util.List;
 public interface JobAdService {
 
     Result add(JobAd jobAd);
+    Result updateActive(int jobAdId,boolean active);
     DataResult<List<JobAd>> getAll();
-    DataResult<List<JobAd>> getAllByEmployerId(int employerId);
+    DataResult<List<JobAd>> getAllByEmployerEmail(String email);
     DataResult<List<JobAd>> getAllByCity(String city);
-    DataResult<List<JobAd>> getAllByPositionId(int positionId);
+    DataResult<List<JobAd>> getAllByPosition_PositionName(String positionName);
     DataResult<List<JobAd>> getAllByLastDate(Date date);
 }

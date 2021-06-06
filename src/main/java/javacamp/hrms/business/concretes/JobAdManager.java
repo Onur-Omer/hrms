@@ -30,13 +30,21 @@ public class JobAdManager implements JobAdService {
     }
 
     @Override
+    public Result updateActive(int jobAdId,boolean active) {
+        JobAd jobAd=this.jobAdDao.getByJob_ad_id(jobAdId);
+        jobAd.setActive(active);
+        this.jobAdDao.save(jobAd);
+        return new SuccessResult();
+    }
+
+    @Override
     public DataResult<List<JobAd>> getAll() {
         return new SuccessDataResult<List<JobAd>>(this.jobAdDao.findAll());
     }
 
     @Override
-    public DataResult<List<JobAd>> getAllByEmployerId(int employerId) {
-        return new SuccessDataResult<List<JobAd>>(this.jobAdDao.getAllByEmployerId(employerId));
+    public DataResult<List<JobAd>> getAllByEmployerEmail(String email) {
+        return new SuccessDataResult<List<JobAd>>(this.jobAdDao.getAllByEmployerEmail(email));
     }
 
     @Override
@@ -45,8 +53,8 @@ public class JobAdManager implements JobAdService {
     }
 
     @Override
-    public DataResult<List<JobAd>> getAllByPositionId(int positionId) {
-        return new SuccessDataResult<List<JobAd>>(this.jobAdDao.getAllByPositionId(positionId));
+    public DataResult<List<JobAd>> getAllByPosition_PositionName(String positionName) {
+        return new SuccessDataResult<List<JobAd>>(this.jobAdDao.getAllByPosition_PositionName(positionName));
     }
 
     @Override

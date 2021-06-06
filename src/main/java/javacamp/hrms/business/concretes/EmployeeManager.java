@@ -17,20 +17,18 @@ import java.util.List;
 public class EmployeeManager implements EmployeeService {
 
     private EmployeeDao employeeDao;
-    private EmployeeCvDao employeeCvDao;
     private MernisService mernisService;
     private EmailValidation emailValidation;
 
     @Autowired
-    public EmployeeManager(EmployeeDao employeeDao, EmployeeCvDao employeeCvDao, MernisService mernisService, EmailValidation emailValidation) {
+    public EmployeeManager(EmployeeDao employeeDao, MernisService mernisService, EmailValidation emailValidation) {
         this.employeeDao = employeeDao;
-        this.employeeCvDao = employeeCvDao;
         this.mernisService = mernisService;
         this.emailValidation = emailValidation;
     }
 
     @Override
-    public Result signIn(Employee employee) {
+    public Result add(Employee employee) {
 
         if(employee.getFirstName().isEmpty() ||
                 employee.getEmail().isEmpty() ||
@@ -66,8 +64,8 @@ public class EmployeeManager implements EmployeeService {
     }
 
     @Override
-    public DataResult<EmployeeCv> getEmployeeCvByEmployeeId(int id) {
-        return new SuccessDataResult<EmployeeCv>(this.employeeCvDao.getByEmployee_Id(id));
+    public DataResult<Employee> getByEmail(String email) {
+        return new SuccessDataResult<Employee>(this.employeeDao.getByEmail(email));
     }
 
 

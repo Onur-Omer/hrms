@@ -8,7 +8,8 @@ import javacamp.hrms.entities.concretes.JobAd;
 import java.util.List;
 
 public interface EmployerService {
-    Result signIn(Employer employer);
+    Result add(Employer employer);
     DataResult<List<Employer>> getAll();
+    DataResult<Employer> getByEmail(String email);
     Result addJobAd(JobAd jobAd);
 }

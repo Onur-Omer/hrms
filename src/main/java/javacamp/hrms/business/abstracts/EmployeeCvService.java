@@ -4,8 +4,10 @@ import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
 import javacamp.hrms.entities.concretes.EmployeeCv;
 
+import java.util.List;
+
 
 public interface EmployeeCvService {
-    DataResult<EmployeeCv> getByEmployee_Id(int id);
+    DataResult<List<EmployeeCv>> getAllByEmployee_Email(String email);
     Result add(EmployeeCv employeeCv);
 }

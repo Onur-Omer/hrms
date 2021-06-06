@@ -151,7 +151,7 @@ public class AJSExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
         {
 			if(enableLogging)
 			{
-				android.util.Log.e(AJSExtendedSoapSerializationEnvelope.TAG,"Error occured",e);
+                //System.out.println("requestDump: "+__httpTransport.requestDump);
 			}
         }
         return null;
@@ -211,7 +211,7 @@ public class AJSExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
         {
 			if(enableLogging)
 			{
-				android.util.Log.e(AJSExtendedSoapSerializationEnvelope.TAG,"Error occured",e);
+                System.out.println(e);
 			}
             return null;
         }
@@ -239,7 +239,7 @@ public class AJSExtendedSoapSerializationEnvelope extends com.easywsdl.exksoap2.
                 {
 					if(enableLogging)
 					{
-						android.util.Log.e(AJSExtendedSoapSerializationEnvelope.TAG,"Error occured",e);
+                        System.out.println(e);
 					}
                 }
             }

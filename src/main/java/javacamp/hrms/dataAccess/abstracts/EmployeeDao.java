@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface EmployeeDao extends JpaRepository<Employee,Integer> {
 
     boolean findByEmail(String email);
+    Employee getByEmail(String email);
     boolean findByIdentityNumber(String identityNumber);
 }

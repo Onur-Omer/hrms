@@ -18,14 +18,8 @@ public class JobAd {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
-
-    @Column(name = "employer_id")
-    private int employerId;
-
-    @Column(name = "position_id")
-    private int positionId;
+    @Column(name = "job_ad_id")
+    private int job_ad_id;
 
     @Column(name = "title")
     private String title;
@@ -48,7 +42,7 @@ public class JobAd {
     @Column(name = "last_date")
     private Date lastDate;
 
-    @Column(name = "last_date")
+    @Column(name = "first_date")
     private Date firstDate;
 
     @Column(name = "active")

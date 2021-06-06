@@ -1,17 +1,21 @@
 package javacamp.hrms.entities.concretes;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "personels")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Personel {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "personel_id")
+    private int personel_id;
 
     @Column(name = "first_name")
     private String firstName;

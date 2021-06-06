@@ -27,7 +27,7 @@ public class EmployerManager implements EmployerService {
     }
 
     @Override
-    public Result signIn(Employer employer) {
+    public Result add(Employer employer) {
 
         if(employer.getCompanyName().isEmpty()||
             employer.getEmail().isEmpty()||
@@ -54,7 +54,13 @@ public class EmployerManager implements EmployerService {
 
     @Override
     public DataResult<List<Employer>> getAll() {
+
         return new SuccessDataResult<List<Employer>>(employerDao.findAll());
+    }
+
+    @Override
+    public DataResult<Employer> getByEmail(String email) {
+        return new SuccessDataResult<Employer>(this.employerDao.getByEmail(email));
     }
 
     @Override
