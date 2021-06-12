@@ -2,17 +2,21 @@ package javacamp.hrms.api.controllers;
 
 import javacamp.hrms.business.abstracts.EmployeeService;
 import javacamp.hrms.core.utilities.results.DataResult;
+import javacamp.hrms.core.utilities.results.ErrorDataResult;
 import javacamp.hrms.entities.concretes.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping(name = "/api/employees")
+@RequestMapping("/api/employees")
 public class EmployeesController {
 
     private EmployeeService employeeService;
@@ -22,14 +26,17 @@ public class EmployeesController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(value = "/getAllEmployees")
+
+
+    @GetMapping("/getAllEmployees")
     public DataResult<List<Employee>> getAll(){
         return this.employeeService.getAll();
     }
 
-    @GetMapping(value = "/getByEmailEmployee")
-    public DataResult<Employee> getByEmail(@RequestParam String email){
-        return this.employeeService.getByEmail(email);
+
+    @GetMapping( "/getByEmployeeId")
+    public DataResult<Employee> getByEmployee_id(@RequestParam int id){
+        return this.employeeService.getByEmployeeId(id);
     }
 
 }

@@ -1,5 +1,6 @@
 package javacamp.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
-    private int employee_id;
+    private int employeeId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -43,6 +44,7 @@ public class Employee {
     private boolean status;
 
     @OneToMany(mappedBy = "employee")
+    @JsonIgnore
     private List<EmployeeCv> employeeCvs;
 
 }

@@ -1,5 +1,6 @@
 package javacamp.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,11 +19,12 @@ public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "position_id")
-    private int position_id;
+    private int positionId;
 
     @Column(name = "position_name")
     private String positionName;
 
     @OneToMany(mappedBy = "position")
+    @JsonIgnore
     private List<JobAd> jobAds;
 }

@@ -17,13 +17,11 @@ public class EmployerManager implements EmployerService {
 
     private EmployerDao employerDao;
     private EmailValidation emailValidation;
-    private JobAdService jobAdService;
 
     @Autowired
-    public EmployerManager(EmployerDao employerDao, EmailValidation emailValidation, JobAdService jobAdService) {
+    public EmployerManager(EmployerDao employerDao, EmailValidation emailValidation) {
         this.employerDao = employerDao;
         this.emailValidation = emailValidation;
-        this.jobAdService = jobAdService;
     }
 
     @Override
@@ -59,13 +57,13 @@ public class EmployerManager implements EmployerService {
     }
 
     @Override
+    public DataResult<Employer> getByEmployerId(int id) {
+        return new SuccessDataResult<>(this.employerDao.getByEmployerId(id));
+    }
+
+    @Override
     public DataResult<Employer> getByEmail(String email) {
         return new SuccessDataResult<Employer>(this.employerDao.getByEmail(email));
     }
 
-    @Override
-    public Result addJobAd(JobAd jobAd) {
-        this.jobAdService.add(jobAd);
-        return new SuccessResult();
-    }
 }

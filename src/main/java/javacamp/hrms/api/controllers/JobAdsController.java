@@ -6,15 +6,17 @@ import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
 import javacamp.hrms.core.utilities.results.SuccessResult;
 import javacamp.hrms.entities.concretes.JobAd;
+import javacamp.hrms.entities.dtos.JobAdForAdd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/jobAds")
+@RequestMapping("/api/jobAds")
 public class JobAdsController {
 
     private JobAdService jobAdService;
@@ -29,35 +31,35 @@ public class JobAdsController {
         return this.jobAdService.getAll();
     }
 
-    @GetMapping(value = "/getAllByEmployerEmail")
-    public DataResult<List<JobAd>> getAllByEmployerEmail(@RequestParam String email){
-        return this.jobAdService.getAllByEmployerEmail(email);
+    @GetMapping( "/getAllByEmployer_EmployerId")
+    public DataResult<List<JobAd>> getAllByEmployer_EmployerId(@RequestParam int id){
+        return this.jobAdService.getAllByEmployer_EmployerId(id);
     }
 
-    @GetMapping(value = "/getAllByCity")
-    public DataResult<List<JobAd>> getAllByCity(@RequestParam String city){
-        return this.jobAdService.getAllByCity(city);
+    @GetMapping("/getAllByCity_CityId")
+    public DataResult<List<JobAd>> getAllByCity_CityId(@RequestParam int id){
+        return this.jobAdService.getAllByCity_CityId(id);
     }
 
-    @GetMapping(value = "/getAllByPositionName")
-    public DataResult<List<JobAd>> getAllByPosition_PositionName(@RequestParam String positionName){
-        return this.jobAdService.getAllByPosition_PositionName(positionName);
+    @GetMapping("/getAllByPosition_PositionId")
+    public DataResult<List<JobAd>> getAllByPosition_PositionId(@RequestParam int id){
+        return this.jobAdService.getAllByPosition_PositionId(id);
     }
 
-    @GetMapping(value = "/getAllByLastDate")
-    public DataResult<List<JobAd>> getAllByLastDate(@RequestParam Date date){
+    @GetMapping( "/getAllByLastDate")
+    public DataResult<List<JobAd>> getAllByLastDate(@RequestParam LocalDate date){
         return this.jobAdService.getAllByLastDate(date);
     }
 
-    @PostMapping(value = "/addJobAd")
-    public Result add(@Valid @RequestBody JobAd jobAd){
-        this.jobAdService.add(jobAd);
+    @PostMapping("/addJobAd")
+    public Result add(@Valid @RequestBody JobAdForAdd jobAdForAdd){
+        this.jobAdService.add(jobAdForAdd);
         return new SuccessResult();
     }
 
-    @PostMapping(value = "/updateActive")
-    public Result updateActive(@Valid @RequestParam int id,@RequestParam boolean active){
-        this.jobAdService.updateActive(id,active);
+    @PostMapping( "/updateActive")
+    public Result updateActive(@Valid @RequestParam int id){
+        this.jobAdService.updateActive(id);
         return new SuccessResult();
     }
 }

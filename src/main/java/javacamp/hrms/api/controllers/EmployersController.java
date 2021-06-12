@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/employers")
+@RequestMapping("/api/employers")
 public class EmployersController {
 
     private EmployerService employerService;
@@ -23,14 +23,14 @@ public class EmployersController {
         this.employerService = employerService;
     }
 
-    @GetMapping(value = "/getAllEmployers")
+    @GetMapping( "/getAllEmployers")
     public DataResult<List<Employer>> getAll(){
         return this.employerService.getAll();
     }
 
-    @GetMapping(value = "/getByEmailEmployer")
-    public DataResult<Employer> getByEmail(@RequestParam String email){
-        return this.employerService.getByEmail(email);
+    @GetMapping("/getByEmployerId")
+    public DataResult<Employer> getByEmployerId(@RequestParam int id){
+        return this.employerService.getByEmployerId(id);
     }
 
 }

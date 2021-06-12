@@ -1,4 +1,6 @@
 package javacamp.hrms.entities.concretes;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,11 +14,13 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="software_langs")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "employeeCv" })
+
 public class CvSoftwareLang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cv_software_lang_id")
-    private int cv_software_lang_id;
+    private int cvSoftwareLangId;
 
     @NotBlank
     @NotNull
@@ -24,6 +28,7 @@ public class CvSoftwareLang {
     private String usedLanguages;
 
     @ManyToOne()
-    @JoinColumn(name = "employee_cv_id")
+    @JsonIgnore
+    @JoinColumn(name = "employeeCvId")
     private EmployeeCv employeeCv;
 }

@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/api/positions")
+@RequestMapping("/api/positions")
 public class PositionsController {
 
     private PositionService positionService;
@@ -22,14 +22,18 @@ public class PositionsController {
     }
 
 
-    @GetMapping(value = "/getAllPositions")
+    @GetMapping( "/getAllPositions")
     public DataResult<List<Position>> getAll(){
         return positionService.getall();
     }
 
-    @PostMapping(value = "/addPosition")
+    @PostMapping("/addPosition")
     public Result add(@Valid @RequestBody Position position){
         return this.positionService.add(position);
     }
 
+    @GetMapping("/getByPositionId")
+    public DataResult<Position> getById(int id){
+        return this.positionService.getByPositionId(id);
+    }
 }

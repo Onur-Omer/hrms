@@ -8,6 +8,8 @@ import java.util.List;
 
 
 public interface EmployeeCvService {
-    DataResult<List<EmployeeCv>> getAllByEmployee_Email(String email);
+    DataResult<List<EmployeeCv>> getAllByEmployee_EmployeeId(int id);
     Result add(EmployeeCv employeeCv);
+    DataResult<EmployeeCv> getByEmployeeCvId(int id);
+
 }

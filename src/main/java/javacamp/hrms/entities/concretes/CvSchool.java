@@ -1,5 +1,7 @@
 package javacamp.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,11 +16,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="schools")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "employeeCv" })
+
 public class CvSchool {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="cv_school_id")
-    private int cv_school_id;
+    private int cvSchoolId;
 
     @NotBlank
     @NotNull
@@ -39,6 +43,7 @@ public class CvSchool {
     private LocalDate finishDate;
 
     @ManyToOne()
-    @JoinColumn(name="employee_cv_id")
+    @JsonIgnore
+    @JoinColumn(name="employeeCvId")
     private EmployeeCv employeeCv;
 }

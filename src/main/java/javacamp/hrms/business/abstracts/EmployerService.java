@@ -10,6 +10,6 @@ import java.util.List;
 public interface EmployerService {
     Result add(Employer employer);
     DataResult<List<Employer>> getAll();
+    DataResult<Employer> getByEmployerId(int id);
     DataResult<Employer> getByEmail(String email);
-    Result addJobAd(JobAd jobAd);
 }

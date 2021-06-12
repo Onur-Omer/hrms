@@ -1,9 +1,11 @@
 package javacamp.hrms.api.controllers;
 
+
 import javacamp.hrms.business.abstracts.AuthService;
 import javacamp.hrms.core.utilities.results.ErrorDataResult;
-import javacamp.hrms.core.utilities.results.Result;
+import javacamp.hrms.entities.dtos.EmployeeForLogin;
 import javacamp.hrms.entities.dtos.EmployeeForRegister;
+import javacamp.hrms.entities.dtos.EmployerForLogin;
 import javacamp.hrms.entities.dtos.EmployerForRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(name = "/api/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private AuthService authService;
@@ -27,16 +29,26 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping(value = "/registerEmployee")
+    @PostMapping("/registerEmployee")
     public ResponseEntity<?> registerEmployee(@Valid @RequestBody EmployeeForRegister employeeForRegister){
 
         return ResponseEntity.ok(this.authService.registerEmployee(employeeForRegister));
     }
 
-    @PostMapping(value = "/registerEmployer")
+    @PostMapping( "/registerEmployer")
     public ResponseEntity<?> registerEmployer(@Valid @RequestBody EmployerForRegister employerForRegister){
 
         return ResponseEntity.ok(this.authService.registerEmployer(employerForRegister));
+    }
+
+    @GetMapping( "/loginForEmployee")
+    public ResponseEntity<?> loginForEmployee(@RequestBody EmployeeForLogin employeeForLogin){
+        return ResponseEntity.ok(this.authService.loginEmployee(employeeForLogin));
+    }
+
+    @GetMapping( "/loginForEmployer")
+    public ResponseEntity<?> loginForEmployer(@RequestBody EmployerForLogin employerForLogin){
+        return ResponseEntity.ok(this.authService.loginEmployer(employerForLogin));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

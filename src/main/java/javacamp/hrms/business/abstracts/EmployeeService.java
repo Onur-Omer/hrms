@@ -11,5 +11,6 @@ public interface EmployeeService {
 
      Result add(Employee employee);
      DataResult<List<Employee>> getAll();
+     DataResult<Employee> getByEmployeeId(int id);
      DataResult<Employee> getByEmail(String email);
 }

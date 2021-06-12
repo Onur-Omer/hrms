@@ -1,5 +1,6 @@
 package javacamp.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ public class JobAd {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "job_ad_id")
-    private int id;
+    private int jobAdId;
 
     @Column(name = "title")
     private String title;
@@ -27,8 +28,6 @@ public class JobAd {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "city")
-    private String city;
 
     @Column(name = "max_salary")
     private int maxSalary;
@@ -49,10 +48,14 @@ public class JobAd {
     private boolean active;
 
     @ManyToOne()
-    @JoinColumn(name = "employer_id")
+    @JoinColumn(name = "employerId")
     private Employer employer;
 
     @ManyToOne()
-    @JoinColumn(name = "position_id")
+    @JoinColumn(name = "positionId")
     private Position position;
+
+    @ManyToOne()
+    @JoinColumn(name = "cityId")
+    private  City city;
 }

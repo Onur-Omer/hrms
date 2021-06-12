@@ -33,4 +33,9 @@ public class PositionManager implements PositionService {
 
         return new SuccessResult();
     }
+
+    @Override
+    public DataResult<Position> getByPositionId(int id) {
+        return new SuccessDataResult<>(this.positionDao.getByPositionId(id));
+    }
 }

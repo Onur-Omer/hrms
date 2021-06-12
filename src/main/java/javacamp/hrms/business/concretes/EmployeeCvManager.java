@@ -22,14 +22,20 @@ public class EmployeeCvManager implements EmployeeCvService {
         this.employeeCvDao = employeeCvDao;
     }
 
+
     @Override
-    public DataResult<List<EmployeeCv>> getAllByEmployee_Email(String email) {
-        return new SuccessDataResult<List<EmployeeCv>>(this.employeeCvDao.getAllByEmployee_Email(email));
+    public DataResult<List<EmployeeCv>> getAllByEmployee_EmployeeId(int id) {
+        return new SuccessDataResult<>(this.employeeCvDao.getAllByEmployee_EmployeeId(id));
     }
 
     @Override
     public Result add(EmployeeCv employeeCv) {
         this.employeeCvDao.save(employeeCv);
         return new SuccessResult("Eklendi");
+    }
+
+    @Override
+    public DataResult<EmployeeCv> getByEmployeeCvId(int id) {
+        return new SuccessDataResult<>(this.employeeCvDao.getByEmployeeCvId(id));
     }
 }

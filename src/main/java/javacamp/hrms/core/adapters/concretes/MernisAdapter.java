@@ -12,18 +12,15 @@ public class MernisAdapter implements MernisService {
     public boolean checkRealUser(Employee employee) {
 
         AJSKPSPublicSoap client= new AJSKPSPublicSoap();
-
-        boolean result= false;
         try {
-            result = client.TCKimlikNoDogrula(Long.valueOf(employee.getIdentityNumber())
+            return  client.TCKimlikNoDogrula(Long.valueOf(employee.getIdentityNumber())
                     ,employee.getFirstName()
                     ,employee.getLastName()
                     ,Integer.valueOf(employee.getBirthday()));
         } catch (Exception e) {
-
+            e.printStackTrace();
+            return false;
         }
-
-            return result;
 
     }
 }

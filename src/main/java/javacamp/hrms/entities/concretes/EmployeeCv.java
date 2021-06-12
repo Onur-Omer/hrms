@@ -1,5 +1,6 @@
 package javacamp.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class EmployeeCv {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_cv_id")
-    private int employee_cv_id;
+    private int employeeCvId;
 
     @Column(name = "photo")
     private String photo;
@@ -46,7 +47,8 @@ public class EmployeeCv {
     private List<CvForeignLanguage> foreignLanguages;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JsonIgnore
+    @JoinColumn(name = "employeeId")
     private Employee employee;
 
 
