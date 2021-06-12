@@ -31,7 +31,7 @@ public class EmployeeCvsController {
         this.cvSoftwareLangService = cvSoftwareLangService;
     }
 
-    @GetMapping(value = "/getAllByEmployee_EmployeeId")
+    @GetMapping( "/getAllByEmployee_EmployeeId")
     public DataResult<List<EmployeeCv>> getAllByEmployee_EmployeeId(@RequestParam int id){
         return this.employeeCvService.getAllByEmployee_EmployeeId(id);
     }
@@ -41,7 +41,7 @@ public class EmployeeCvsController {
         return this.employeeCvService.getByEmployeeCvId(id);
     }
 
-    @PostMapping(value = "/add")
+    @PostMapping( "/add")
     public Result add(@Valid @RequestBody EmployeeCv employeeCv,@RequestParam int employeeId){
         employeeCv.setEmployee(employeeService.getByEmployeeId(employeeId).getData());
         return this.employeeCvService.add(employeeCv);

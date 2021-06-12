@@ -36,15 +36,6 @@ public class EmployerManager implements EmployerService {
             return new ErrorResult("Eksik bilgi var");
         }
 
-
-        if(employerDao.findByEmail(employer.getEmail())){
-            return new ErrorResult("Var olan kullanıcı");
-        }
-
-        if (!emailValidation.validate(employer.getEmail())){
-            return new ErrorResult("Email onaylanmadı");
-        }
-
         employerDao.save(employer);
 
         return new SuccessResult("Eklendi");

@@ -26,9 +26,7 @@ public class PositionManager implements PositionService {
 
     @Override
     public Result add(Position position) {
-        if(positionDao.findByPositionName(position.getPositionName())){
-          return new ErrorResult("Var olan pozisyon");
-        }
+
         positionDao.save(position);
 
         return new SuccessResult();

@@ -27,9 +27,9 @@ public class JobAdForAdd {
 
     private int numberOfEmployee;
 
-    private Date lastDate;
+    private String lastDate;
 
-    private Date firstDate;
+    private String  firstDate;
 
     private int employerId;
 

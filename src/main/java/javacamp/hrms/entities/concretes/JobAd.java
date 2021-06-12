@@ -39,10 +39,10 @@ public class JobAd {
     private int numberOfEmployee;
 
     @Column(name = "last_date")
-    private Date lastDate;
+    private String lastDate;
 
     @Column(name = "first_date")
-    private Date firstDate;
+    private String firstDate;
 
     @Column(name = "active")
     private boolean active;

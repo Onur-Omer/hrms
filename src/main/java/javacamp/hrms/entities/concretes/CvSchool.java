@@ -37,10 +37,10 @@ public class CvSchool {
     @NotBlank
     @NotNull
     @Column(name = "start_date")
-    private LocalDate startDate;
+    private String startDate;
 
     @Column(name = "finish_date")
-    private LocalDate finishDate;
+    private String finishDate;
 
     @ManyToOne()
     @JsonIgnore
