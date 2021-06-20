@@ -1,8 +1,6 @@
 package javacamp.hrms.business.concretes;
 
 import javacamp.hrms.business.abstracts.EmployeeService;
-import javacamp.hrms.core.adapters.abstracts.MernisService;
-import javacamp.hrms.core.utilities.EmailValidation.EmailValidation;
 import javacamp.hrms.core.utilities.results.*;
 import javacamp.hrms.dataAccess.abstracts.EmployeeDao;
 import javacamp.hrms.entities.concretes.Employee;
@@ -15,14 +13,12 @@ import java.util.List;
 public class EmployeeManager implements EmployeeService {
 
     private EmployeeDao employeeDao;
-    private MernisService mernisService;
-    private EmailValidation emailValidation;
+
 
     @Autowired
-    public EmployeeManager(EmployeeDao employeeDao, MernisService mernisService, EmailValidation emailValidation) {
+    public EmployeeManager(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
-        this.mernisService = mernisService;
-        this.emailValidation = emailValidation;
+
     }
 
     @Override
