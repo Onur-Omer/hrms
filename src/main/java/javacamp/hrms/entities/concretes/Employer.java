@@ -45,4 +45,14 @@ public class Employer {
     @OneToMany(mappedBy = "employer")
     @JsonIgnore
     private List<JobAd> jobAds;
+
+    @OneToOne()
+    @JoinColumn(name =  "confirmationByMailId")
+    @JsonIgnore
+    ConfirmationByMail confirmationByMail;
+
+    @OneToOne()
+    @JoinColumn(name = "confirmationByStaffForEmployerId")
+    @JsonIgnore
+    ConfirmationByStaffForEmployer confirmationByStaffForEmployer;
 }

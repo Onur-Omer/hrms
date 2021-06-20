@@ -1,13 +1,11 @@
 package javacamp.hrms.entities.concretes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Data
@@ -44,6 +42,12 @@ public class JobAd {
     @Column(name = "first_date")
     private String firstDate;
 
+    @Column(name = "work_time")
+    private String workTime;
+
+    @Column(name = "work_place")
+    private String workPlace;
+
     @Column(name = "active")
     private boolean active;
 
@@ -58,4 +62,8 @@ public class JobAd {
     @ManyToOne()
     @JoinColumn(name = "cityId")
     private  City city;
+
+    @OneToOne()
+    @JoinColumn(name = "confirmationByStaffForJobAdId")
+    ConfirmationByStaffForEmployer confirmationByStaffForJobAd;
 }

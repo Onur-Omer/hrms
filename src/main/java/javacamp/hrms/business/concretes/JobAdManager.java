@@ -83,7 +83,7 @@ public class JobAdManager implements JobAdService {
     }
 
     @Override
-    public DataResult<List<JobAd>> getAllByLastDate(LocalDate date) {
+    public DataResult<List<JobAd>> getAllByLastDate(String date) {
         return new SuccessDataResult<List<JobAd>>(this.jobAdDao.getAllByLastDate(date));
     }
 

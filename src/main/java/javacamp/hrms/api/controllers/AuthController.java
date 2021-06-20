@@ -2,7 +2,11 @@ package javacamp.hrms.api.controllers;
 
 
 import javacamp.hrms.business.abstracts.AuthService;
+import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.ErrorDataResult;
+import javacamp.hrms.core.utilities.results.SuccessDataResult;
+import javacamp.hrms.entities.concretes.Employee;
+import javacamp.hrms.entities.concretes.Employer;
 import javacamp.hrms.entities.dtos.EmployeeForLogin;
 import javacamp.hrms.entities.dtos.EmployeeForRegister;
 import javacamp.hrms.entities.dtos.EmployerForLogin;
@@ -18,6 +22,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -28,6 +33,7 @@ public class AuthController {
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
+
 
     @PostMapping("/registerEmployee")
     public ResponseEntity<?> registerEmployee(@Valid @RequestBody EmployeeForRegister employeeForRegister){
@@ -41,15 +47,18 @@ public class AuthController {
         return ResponseEntity.ok(this.authService.registerEmployer(employerForRegister));
     }
 
-    @GetMapping( "/loginForEmployee")
+
+   @PostMapping( "/loginForEmployee")
     public ResponseEntity<?> loginForEmployee(@RequestBody EmployeeForLogin employeeForLogin){
         return ResponseEntity.ok(this.authService.loginEmployee(employeeForLogin));
-    }
 
-    @GetMapping( "/loginForEmployer")
-    public ResponseEntity<?> loginForEmployer(@RequestBody EmployerForLogin employerForLogin){
-        return ResponseEntity.ok(this.authService.loginEmployer(employerForLogin));
     }
+    @PostMapping( "/loginForEmployer")
+    public ResponseEntity<?> loginForEmployer(@RequestBody EmployerForLogin employerForLogin){
+            return ResponseEntity.ok(this.authService.loginEmployer(employerForLogin));
+        }
+
+
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

@@ -11,6 +11,6 @@ public interface JobAdDao extends JpaRepository<JobAd,Integer> {
     List<JobAd> getAllByEmployer_EmployerId(int id);
     List<JobAd> getAllByCity_CityId(int id);
     List<JobAd> getAllByPosition_PositionId(int id);
-    List<JobAd> getAllByLastDate(LocalDate date);
+    List<JobAd> getAllByLastDate(String date);
     JobAd getByJobAdId(int id);
 }

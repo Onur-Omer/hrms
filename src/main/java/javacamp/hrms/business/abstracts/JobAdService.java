@@ -16,6 +16,6 @@ public interface JobAdService {
     DataResult<List<JobAd>> getAllByEmployer_EmployerId(int id);
     DataResult<List<JobAd>> getAllByCity_CityId(int id);
     DataResult<List<JobAd>> getAllByPosition_PositionId(int id);
-    DataResult<List<JobAd>> getAllByLastDate(LocalDate date);
+    DataResult<List<JobAd>> getAllByLastDate(String date);
     DataResult<JobAd> getByJobAdId(int id);
 }

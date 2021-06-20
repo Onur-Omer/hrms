@@ -65,7 +65,7 @@ public class AuthManager implements AuthService {
         if(employee==null){
             return new SuccessDataResult<>("Email Yok");
         }
-        if(employee.getData().getPassword()!=employeeForLogin.getPassword()){
+        if(!employee.getData().getPassword().equals(employeeForLogin.getPassword())){
             return new SuccessDataResult<>("Parola Yanlış");
         }
 

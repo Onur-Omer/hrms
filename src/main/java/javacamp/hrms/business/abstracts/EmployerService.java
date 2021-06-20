@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface EmployerService {
     Result add(Employer employer);
+    Result update(Employer employer);
     DataResult<List<Employer>> getAll();
     DataResult<Employer> getByEmployerId(int id);
     DataResult<Employer> getByEmail(String email);

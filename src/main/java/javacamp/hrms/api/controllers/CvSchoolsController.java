@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/cvSchools")
 public class CvSchoolsController {
@@ -24,8 +25,8 @@ public class CvSchoolsController {
         return this.cvSchoolService.add(cvSchool);
     }
 
-    @GetMapping("/getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateAsc")
-    public DataResult<List<CvSchool>> getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateAsc(int id){
-        return this.cvSchoolService.getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateAsc(id);
+    @GetMapping("/getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc")
+    public DataResult<List<CvSchool>> getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc(int id){
+        return this.cvSchoolService.getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc(id);
     }
 }

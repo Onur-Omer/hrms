@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/employeeCvs")
 public class EmployeeCvsController {
@@ -36,7 +37,7 @@ public class EmployeeCvsController {
         return this.employeeCvService.getAllByEmployee_EmployeeId(id);
     }
 
-    @GetMapping("/getByEmployeeCvId(")
+    @GetMapping("/getByEmployeeCvId")
     public DataResult<EmployeeCv> getByEmployeeCvId(int id){
         return this.employeeCvService.getByEmployeeCvId(id);
     }

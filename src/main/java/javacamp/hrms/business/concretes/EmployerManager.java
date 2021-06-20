@@ -42,6 +42,13 @@ public class EmployerManager implements EmployerService {
     }
 
     @Override
+    public Result update(Employer employer) {
+        this.employerDao.save(employer);
+
+        return new SuccessResult();
+    }
+
+    @Override
     public DataResult<List<Employer>> getAll() {
 
         return new SuccessDataResult<List<Employer>>(employerDao.findAll());

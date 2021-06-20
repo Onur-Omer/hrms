@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobAds")
 public class JobAdsController {
@@ -47,7 +48,7 @@ public class JobAdsController {
     }
 
     @GetMapping( "/getAllByLastDate")
-    public DataResult<List<JobAd>> getAllByLastDate(@RequestParam LocalDate date){
+    public DataResult<List<JobAd>> getAllByLastDate(@RequestParam String date){
         return this.jobAdService.getAllByLastDate(date);
     }
 

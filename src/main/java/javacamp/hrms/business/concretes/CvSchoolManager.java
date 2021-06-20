@@ -29,7 +29,7 @@ public class CvSchoolManager implements CvSchoolService {
     }
 
     @Override
-    public DataResult<List<CvSchool>> getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateAsc(int id) {
-        return new SuccessDataResult<>(this.cvSchoolDao.getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateAsc(id));
+    public DataResult<List<CvSchool>> getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc(int id) {
+        return new SuccessDataResult<>(this.cvSchoolDao.getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc(id));
     }
 }
