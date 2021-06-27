@@ -45,6 +45,7 @@ public class EmployeeCvsController {
     @PostMapping( "/add")
     public Result add(@Valid @RequestBody EmployeeCv employeeCv,@RequestParam int employeeId){
         employeeCv.setEmployee(employeeService.getByEmployeeId(employeeId).getData());
+        cvExperianceService.add(employeeCv.getExperiances().get(0));
         return this.employeeCvService.add(employeeCv);
     }
 
