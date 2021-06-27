@@ -10,12 +10,10 @@ import javacamp.hrms.core.utilities.results.SuccessDataResult;
 import javacamp.hrms.core.utilities.results.SuccessResult;
 import javacamp.hrms.dataAccess.abstracts.JobAdDao;
 import javacamp.hrms.entities.concretes.JobAd;
-import javacamp.hrms.entities.dtos.JobAdForAdd;
+import javacamp.hrms.entities.concretes.JobAdForAdd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Service

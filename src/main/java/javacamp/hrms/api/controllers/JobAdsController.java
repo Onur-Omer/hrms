@@ -6,13 +6,11 @@ import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
 import javacamp.hrms.core.utilities.results.SuccessResult;
 import javacamp.hrms.entities.concretes.JobAd;
-import javacamp.hrms.entities.dtos.JobAdForAdd;
+import javacamp.hrms.entities.concretes.JobAdForAdd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @CrossOrigin

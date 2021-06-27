@@ -1,4 +1,4 @@
-package javacamp.hrms.entities.dtos;
+package javacamp.hrms.entities.concretes;
 
 
 import lombok.AllArgsConstructor;

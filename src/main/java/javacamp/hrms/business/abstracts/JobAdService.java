@@ -3,9 +3,8 @@ package javacamp.hrms.business.abstracts;
 import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
 import javacamp.hrms.entities.concretes.JobAd;
-import javacamp.hrms.entities.dtos.JobAdForAdd;
+import javacamp.hrms.entities.concretes.JobAdForAdd;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface JobAdService {

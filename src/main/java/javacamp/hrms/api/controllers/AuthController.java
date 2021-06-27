@@ -2,15 +2,8 @@ package javacamp.hrms.api.controllers;
 
 
 import javacamp.hrms.business.abstracts.AuthService;
-import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.ErrorDataResult;
-import javacamp.hrms.core.utilities.results.SuccessDataResult;
-import javacamp.hrms.entities.concretes.Employee;
-import javacamp.hrms.entities.concretes.Employer;
-import javacamp.hrms.entities.dtos.EmployeeForLogin;
-import javacamp.hrms.entities.dtos.EmployeeForRegister;
-import javacamp.hrms.entities.dtos.EmployerForLogin;
-import javacamp.hrms.entities.dtos.EmployerForRegister;
+import javacamp.hrms.entities.concretes.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,6 +40,12 @@ public class AuthController {
         return ResponseEntity.ok(this.authService.registerEmployer(employerForRegister));
     }
 
+    @PostMapping( "/registerPersonel")
+    public ResponseEntity<?> registerPersonel(@Valid @RequestBody Personel personel){
+
+        return ResponseEntity.ok(this.authService.registerPersonel(personel));
+    }
+
 
    @PostMapping( "/loginForEmployee")
     public ResponseEntity<?> loginForEmployee(@RequestBody EmployeeForLogin employeeForLogin){
@@ -57,6 +56,11 @@ public class AuthController {
     public ResponseEntity<?> loginForEmployer(@RequestBody EmployerForLogin employerForLogin){
             return ResponseEntity.ok(this.authService.loginEmployer(employerForLogin));
         }
+
+    @PostMapping( "/loginForPersonel")
+    public ResponseEntity<?> loginForPersonel(@RequestBody PersonelForLogin personelForLogin){
+        return ResponseEntity.ok(this.authService.loginPersonel(personelForLogin));
+    }
 
 
 

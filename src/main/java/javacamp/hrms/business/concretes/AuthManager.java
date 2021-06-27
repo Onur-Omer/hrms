@@ -3,16 +3,12 @@ package javacamp.hrms.business.concretes;
 import javacamp.hrms.business.abstracts.AuthService;
 import javacamp.hrms.business.abstracts.EmployeeService;
 import javacamp.hrms.business.abstracts.EmployerService;
+import javacamp.hrms.business.abstracts.PersonelService;
 import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
 import javacamp.hrms.core.utilities.results.SuccessDataResult;
 import javacamp.hrms.core.utilities.results.SuccessResult;
-import javacamp.hrms.entities.concretes.Employee;
-import javacamp.hrms.entities.concretes.Employer;
-import javacamp.hrms.entities.dtos.EmployeeForLogin;
-import javacamp.hrms.entities.dtos.EmployeeForRegister;
-import javacamp.hrms.entities.dtos.EmployerForLogin;
-import javacamp.hrms.entities.dtos.EmployerForRegister;
+import javacamp.hrms.entities.concretes.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +17,14 @@ public class AuthManager implements AuthService {
 
     private EmployeeService employeeService;
     private EmployerService employerService;
+    private PersonelService personelService;
 
     @Autowired
-    public AuthManager(EmployeeService employeeService, EmployerService employerService) {
+    public AuthManager(EmployeeService employeeService, EmployerService employerService, PersonelService personelService) {
 
         this.employeeService = employeeService;
         this.employerService = employerService;
+        this.personelService = personelService;
     }
 
     @Override
@@ -60,6 +58,12 @@ public class AuthManager implements AuthService {
     }
 
     @Override
+    public Result registerPersonel(Personel personel) {
+        this.personelService.add(personel);
+        return new SuccessResult();
+    }
+
+    @Override
     public DataResult<Employee> loginEmployee(EmployeeForLogin employeeForLogin) {
         DataResult<Employee> employee=employeeService.getByEmail(employeeForLogin.getEmail());
         if(employee==null){
@@ -83,6 +87,19 @@ public class AuthManager implements AuthService {
         }
 
         return new SuccessDataResult<Employer>(employer.getData());
+    }
+
+    @Override
+    public DataResult<Personel> loginPersonel(PersonelForLogin personelForLogin) {
+        DataResult<Personel> personel=personelService.getByEmail(personelForLogin.getEmail());
+        if(personel==null){
+            return new SuccessDataResult<>("Email Yok");
+        }
+        if(personel.getData().getPassword()!=personelForLogin.getPassword()){
+            return new SuccessDataResult<>("Parola Yanlış");
+        }
+
+        return new SuccessDataResult<Personel>(personel.getData());
     }
 
 }
