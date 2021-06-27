@@ -4,6 +4,7 @@ import javacamp.hrms.business.abstracts.CvForeignLanguageService;
 import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
 import javacamp.hrms.core.utilities.results.SuccessDataResult;
+import javacamp.hrms.core.utilities.results.SuccessResult;
 import javacamp.hrms.dataAccess.abstracts.CvForeignLanguageDao;
 import javacamp.hrms.entities.concretes.CvForeignLanguage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class CvForeignLanguageManager implements CvForeignLanguageService {
     public Result add(CvForeignLanguage cvForeignLanguage) {
         this.cvForeignLanguageDao.save(cvForeignLanguage);
         return null;
+    }
+
+    @Override
+    public Result addAll(List<CvForeignLanguage> cvForeignLanguage) {
+        this.cvForeignLanguageDao.saveAll(cvForeignLanguage);
+        return new SuccessResult();
     }
 
 

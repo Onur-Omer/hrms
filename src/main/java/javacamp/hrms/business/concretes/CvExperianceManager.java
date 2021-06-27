@@ -30,6 +30,12 @@ public class CvExperianceManager implements CvExperianceService {
     }
 
     @Override
+    public Result addAll(List<CvExperiance> cvExperiance) {
+        this.cvExperianceDao.saveAll(cvExperiance);
+        return new SuccessResult();
+    }
+
+    @Override
     public DataResult<List<CvExperiance>> getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(int id) {
         return new SuccessDataResult<List<CvExperiance>>(this.cvExperianceDao.getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(id));
     }

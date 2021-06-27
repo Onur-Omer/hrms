@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface CvForeignLanguageService {
     Result add(CvForeignLanguage cvForeignLanguage);
+    Result addAll(List<CvForeignLanguage> cvForeignLanguage);
     DataResult<List<CvForeignLanguage>> getAllByEmployeeCv_Employee_EmployeeId(int id);
 }

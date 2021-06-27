@@ -3,7 +3,7 @@ package javacamp.hrms.api.controllers;
 import javacamp.hrms.business.abstracts.*;
 import javacamp.hrms.core.utilities.results.DataResult;
 import javacamp.hrms.core.utilities.results.Result;
-import javacamp.hrms.entities.concretes.EmployeeCv;
+import javacamp.hrms.entities.concretes.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,8 +44,30 @@ public class EmployeeCvsController {
 
     @PostMapping( "/add")
     public Result add(@Valid @RequestBody EmployeeCv employeeCv,@RequestParam int employeeId){
-        employeeCv.setEmployee(employeeService.getByEmployeeId(employeeId).getData());
-        cvExperianceService.add(employeeCv.getExperiances().get(0));
+        Employee employee=new Employee();
+        EmployeeCv cv=employeeCv;
+        List<CvExperiance> experiance=employeeCv.getExperiances();
+        List<CvSoftwareLang> softwareLang=employeeCv.getLangs();
+        List<CvSchool> school=employeeCv.getSchools();
+        List<CvForeignLanguage> language=employeeCv.getForeignLanguages();
+
+        employee=employeeService.getByEmployeeId(employeeId).getData();
+
+        cv.setEmployee(employee);
+
+        /*
+        cv.setArticle(employeeCv.getArticle());
+        cv.setActiveStatus(true);
+        cv.setGithub(employeeCv.getGithub());
+        cv.setLinkedln(employeeCv.getLinkedln());
+        cv.setPhoto(employeeCv.getPhoto());
+        */
+
+        cvExperianceService.addAll(experiance);
+        cvSchoolService.addAll(school);
+        cvForeignLanguageService.addAll(language);
+        cvSoftwareLangService.addAll(softwareLang);
+
         return this.employeeCvService.add(employeeCv);
     }
 

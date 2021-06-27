@@ -30,6 +30,12 @@ public class CvSoftwareLangManager implements CvSoftwareLangService {
     }
 
     @Override
+    public Result addAll(List<CvSoftwareLang> cvSoftwareLang) {
+        this.cvSoftwareLangDao.saveAll(cvSoftwareLang);
+        return new SuccessResult();
+    }
+
+    @Override
     public DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_Employee_EmployeeId(int id) {
         return new SuccessDataResult<>(this.cvSoftwareLangDao.getAllByEmployeeCv_Employee_EmployeeId(id));
     }
