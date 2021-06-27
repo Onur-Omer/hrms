@@ -54,14 +54,18 @@ public class EmployeeCvsController {
         employee=employeeService.getByEmployeeId(employeeId).getData();
 
         cv.setEmployee(employee);
-
-        /*
-        cv.setArticle(employeeCv.getArticle());
-        cv.setActiveStatus(true);
-        cv.setGithub(employeeCv.getGithub());
-        cv.setLinkedln(employeeCv.getLinkedln());
-        cv.setPhoto(employeeCv.getPhoto());
-        */
+        for (CvExperiance temp:experiance){
+            temp.setEmployeeCv(cv);
+        }
+        for (CvForeignLanguage temp:language){
+            temp.setEmployeeCv(cv);
+        }
+        for (CvSchool temp:school){
+            temp.setEmployeeCv(cv);
+        }
+        for (CvSoftwareLang temp:softwareLang){
+            temp.setEmployeeCv(cv);
+        }
 
         cvExperianceService.addAll(experiance);
         cvSchoolService.addAll(school);
