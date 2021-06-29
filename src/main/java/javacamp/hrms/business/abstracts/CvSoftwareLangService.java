@@ -7,7 +7,8 @@ import javacamp.hrms.entities.concretes.CvSoftwareLang;
 import java.util.List;
 
 public interface CvSoftwareLangService {
-    Result add(CvSoftwareLang cvSoftwareLang);
+    Result add(CvSoftwareLang cvSoftwareLang,int cvId);
     Result addAll(List<CvSoftwareLang> cvSoftwareLang);
     DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_Employee_EmployeeId(int id);
+    DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_EmployeeCvId(int id);
 }

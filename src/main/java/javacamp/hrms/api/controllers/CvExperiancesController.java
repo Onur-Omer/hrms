@@ -21,13 +21,18 @@ public class CvExperiancesController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody CvExperiance cvExperiance){
-        return this.cvExperianceService.add(cvExperiance);
+    public Result add(@RequestBody CvExperiance cvExperiance,@RequestParam int cvId){
+        return this.cvExperianceService.add(cvExperiance,cvId);
     }
 
 
     @GetMapping("/getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc")
     public DataResult<List<CvExperiance>> getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(@RequestParam int id){
         return this.cvExperianceService.getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(id);
+    }
+
+    @GetMapping("/getAllByEmployeeCv_EmployeeCvId")
+    public DataResult<List<CvExperiance>> getAllByEmployeeCv_EmployeeCvId(@RequestParam int id){
+        return this.cvExperianceService.getAllByEmployeeCv_EmployeeCvId(id);
     }
 }

@@ -23,10 +23,14 @@ public class CvForeignLanguagesController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody CvForeignLanguage cvForeignLanguage){
-        return this.cvForeignLanguageService.add(cvForeignLanguage);
+    public Result add(@RequestBody CvForeignLanguage cvForeignLanguage,@RequestParam int cvId){
+        return this.cvForeignLanguageService.add(cvForeignLanguage,cvId);
     }
 
+    @GetMapping("/getAllByEmployeeCv_EmployeeCvId")
+    public DataResult<List<CvForeignLanguage>> getAllByEmployeeCv_EmployeeCvId(@RequestParam int id){
+        return this.cvForeignLanguageService.getAllByEmployeeCv_EmployeeCvId(id);
+    }
 
     @GetMapping("/getAllByEmployeeCv_Employee_EmployeeId")
     public DataResult<List<CvForeignLanguage>> getAllByEmployeeCv_Employee_EmployeeId(int id){

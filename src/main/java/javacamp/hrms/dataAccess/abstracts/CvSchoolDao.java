@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CvSchoolDao extends JpaRepository<CvSchool,Integer> {
     List<CvSchool> getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc(int id);
-
+    List<CvSchool> getAllByEmployeeCv_EmployeeCvId(int id);
 }

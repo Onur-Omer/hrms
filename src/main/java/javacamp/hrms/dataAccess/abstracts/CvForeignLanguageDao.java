@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CvForeignLanguageDao extends JpaRepository<CvForeignLanguage,Integer> {
     List<CvForeignLanguage> getAllByEmployeeCv_Employee_EmployeeId(int id);
+    List<CvForeignLanguage> getAllByEmployeeCv_EmployeeCvId(int id);
+
 }

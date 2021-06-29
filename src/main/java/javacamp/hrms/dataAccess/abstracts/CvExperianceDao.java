@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CvExperianceDao extends JpaRepository<CvExperiance,Integer> {
     List<CvExperiance> getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(int id);
-
+    List<CvExperiance> getAllByEmployeeCv_EmployeeCvId(int id);
 }
