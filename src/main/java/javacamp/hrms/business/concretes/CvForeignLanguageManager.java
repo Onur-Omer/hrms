@@ -50,4 +50,10 @@ public class CvForeignLanguageManager implements CvForeignLanguageService {
     public DataResult<List<CvForeignLanguage>> getAllByEmployeeCv_EmployeeCvId(int id) {
         return new SuccessDataResult<>(this.cvForeignLanguageDao.getAllByEmployeeCv_EmployeeCvId(id));
     }
+
+    @Override
+    public Result delete(int id) {
+        this.cvForeignLanguageDao.deleteById(id);
+        return new SuccessResult();
+    }
 }

@@ -49,4 +49,10 @@ public class CvSoftwareLangManager implements CvSoftwareLangService {
     public DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_EmployeeCvId(int id) {
         return new SuccessDataResult<>(this.cvSoftwareLangDao.getAllByEmployeeCv_EmployeeCvId(id));
     }
+
+    @Override
+    public Result delete(int id) {
+        this.cvSoftwareLangDao.deleteById(id);
+        return new SuccessResult();
+    }
 }

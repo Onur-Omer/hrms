@@ -12,4 +12,5 @@ public interface CvExperianceService {
     Result addAll(List<CvExperiance> cvExperiance);
     DataResult<List<CvExperiance>> getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(int id);
     DataResult<List<CvExperiance>> getAllByEmployeeCv_EmployeeCvId(int id);
+    Result delete(int id);
 }

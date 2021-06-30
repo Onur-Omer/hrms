@@ -43,6 +43,11 @@ public class EmployeeCvsController {
         return this.employeeCvService.getByEmployeeCvId(id);
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.employeeCvService.delete(id);
+    }
+
     @PostMapping( "/add")
     public Result add(@RequestBody EmployeeCv employeeCv,@RequestParam int employeeId){
         EmployeeCv cv=employeeCv;

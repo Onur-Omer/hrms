@@ -25,6 +25,11 @@ public class CvSchoolsController {
     public Result add(@RequestBody CvSchool cvSchool,@RequestParam int cvId) {
         return this.cvSchoolService.add(cvSchool,cvId);
     }
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.cvSchoolService.delete(id);
+    }
+
     @GetMapping("/getAllByEmployeeCv_EmployeeCvId")
     public DataResult<List<CvSchool>> getAllByEmployeeCv_EmployeeCvId(@RequestParam int id){
         return this.cvSchoolService.getAllByEmployeeCv_EmployeeCvId(id);

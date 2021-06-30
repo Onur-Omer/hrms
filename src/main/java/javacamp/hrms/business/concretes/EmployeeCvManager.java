@@ -38,4 +38,11 @@ public class EmployeeCvManager implements EmployeeCvService {
     public DataResult<EmployeeCv> getByEmployeeCvId(int id) {
         return new SuccessDataResult<>(this.employeeCvDao.getByEmployeeCvId(id));
     }
+
+    @Override
+    public Result delete(int id) {
+
+        this.employeeCvDao.deleteById(id);
+        return new SuccessResult();
+    }
 }

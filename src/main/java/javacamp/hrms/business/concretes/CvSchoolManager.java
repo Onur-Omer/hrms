@@ -49,4 +49,10 @@ public class CvSchoolManager implements CvSchoolService {
     public DataResult<List<CvSchool>> getAllByEmployeeCv_EmployeeCvId(int id) {
         return new SuccessDataResult<>(this.cvSchoolDao.getAllByEmployeeCv_EmployeeCvId(id));
     }
+
+    @Override
+    public Result delete(int id) {
+        this.cvSchoolDao.deleteById(id);
+        return new SuccessResult();
+    }
 }

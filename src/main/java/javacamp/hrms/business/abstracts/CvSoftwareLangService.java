@@ -11,4 +11,5 @@ public interface CvSoftwareLangService {
     Result addAll(List<CvSoftwareLang> cvSoftwareLang);
     DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_Employee_EmployeeId(int id);
     DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_EmployeeCvId(int id);
+    Result delete(int id);
 }

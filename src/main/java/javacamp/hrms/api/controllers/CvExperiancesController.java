@@ -25,6 +25,10 @@ public class CvExperiancesController {
         return this.cvExperianceService.add(cvExperiance,cvId);
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.cvExperianceService.delete(id);
+    }
 
     @GetMapping("/getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc")
     public DataResult<List<CvExperiance>> getAllByEmployeeCv_Employee_EmployeeIdOrderByFinishDateDesc(@RequestParam int id){

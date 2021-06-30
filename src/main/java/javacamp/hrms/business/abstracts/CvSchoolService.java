@@ -11,4 +11,5 @@ public interface CvSchoolService {
     Result addAll(List<CvSchool> cvSchool);
     DataResult<List<CvSchool>> getAllByEmployeeCv_Employee_EmployeeIdOrderByStartDateSchoolAsc(int id);
     DataResult<List<CvSchool>> getAllByEmployeeCv_EmployeeCvId(int id);
+    Result delete(int id);
 }

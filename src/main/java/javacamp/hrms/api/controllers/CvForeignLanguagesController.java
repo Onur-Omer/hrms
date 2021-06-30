@@ -27,6 +27,11 @@ public class CvForeignLanguagesController {
         return this.cvForeignLanguageService.add(cvForeignLanguage,cvId);
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.cvForeignLanguageService.delete(id);
+    }
+
     @GetMapping("/getAllByEmployeeCv_EmployeeCvId")
     public DataResult<List<CvForeignLanguage>> getAllByEmployeeCv_EmployeeCvId(@RequestParam int id){
         return this.cvForeignLanguageService.getAllByEmployeeCv_EmployeeCvId(id);

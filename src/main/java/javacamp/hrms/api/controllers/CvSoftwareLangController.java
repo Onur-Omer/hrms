@@ -28,6 +28,11 @@ public class CvSoftwareLangController {
         return this.cvSoftwareLangService.getAllByEmployeeCv_Employee_EmployeeId(id);
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestParam int id){
+        return this.cvSoftwareLangService.delete(id);
+    }
+
     @GetMapping("/getAllByEmployeeCv_EmployeeCvId")
     public DataResult<List<CvSoftwareLang>> getAllByEmployeeCv_EmployeeCvId(@RequestParam int id){
         return this.cvSoftwareLangService.getAllByEmployeeCv_EmployeeCvId(id);

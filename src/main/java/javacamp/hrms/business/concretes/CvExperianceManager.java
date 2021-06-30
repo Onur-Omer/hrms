@@ -51,4 +51,10 @@ public class CvExperianceManager implements CvExperianceService {
 
         return new SuccessDataResult<>(this.cvExperianceDao.getAllByEmployeeCv_EmployeeCvId(id));
     }
+
+    @Override
+    public Result delete(int id) {
+        this.cvExperianceDao.deleteById(id);
+        return new SuccessResult();
+    }
 }
