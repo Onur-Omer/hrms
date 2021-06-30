@@ -34,16 +34,16 @@ public class EmployeeCv {
     @Column(name = "active_status")
     private boolean activeStatus;
 
-    @OneToMany(mappedBy = "employeeCv")
+    @OneToMany(mappedBy = "employeeCv",cascade = CascadeType.REMOVE)
     private List<CvExperiance> experiances;
 
-    @OneToMany(mappedBy = "employeeCv")
+    @OneToMany(mappedBy = "employeeCv",cascade = CascadeType.REMOVE)
     private List<CvSchool> schools;
 
-    @OneToMany(mappedBy = "employeeCv")
+    @OneToMany(mappedBy = "employeeCv",cascade = CascadeType.REMOVE)
     private List<CvSoftwareLang> langs;
 
-    @OneToMany(mappedBy = "employeeCv")
+    @OneToMany(mappedBy = "employeeCv",cascade = CascadeType.REMOVE)
     private List<CvForeignLanguage> foreignLanguages;
 
     @ManyToOne
